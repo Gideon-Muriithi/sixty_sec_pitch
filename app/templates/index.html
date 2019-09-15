@@ -1,1 +1,40 @@
-<h1>{{ title }}</h1>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+<!-- Content block -->
+{% block content %}
+
+<div class="jumbotron text-center" style="background-color: rgb(122, 51, 70); color: #fff; padding: 55px 25px; font-family: 'Monoton', cursive;">
+    <h1>Sixty Seconds Pitch</h1>
+</div>
+<div class="container" style="padding-bottom: 20px;">
+    <a href="#" class="btn btn-success">Create pitch</a>
+</div>
+
+<div class="container" style= "font-family: 'Cormorant Upright', serif;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well well-lg">
+                <h3>Interview Pitches</h3>
+                <p>Want to ace that Interview and get the job? Why the wait! Let's bigin.</p>
+                <a href="#" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well well-lg">
+                <h3>Product Pitches</h3>
+                <p>Want to sell out your product? You're in the right place. Let's go.</p>
+                <a href="#" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well well-lg">
+                <h3>Promotion Pitches</h3>
+                <p>Do you have anything you wanna promote by your pitch? Let's do it in a split sec!</p>
+                <a href="#" class="btn btn-primary -center">View</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

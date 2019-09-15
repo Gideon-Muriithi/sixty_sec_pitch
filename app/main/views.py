@@ -8,6 +8,6 @@ def index():
     View root page function that returns the index page and its data
     '''
 
-    title = 'Welcome to Sixty Seconds Pitch'
-
+    title = 'Home - Welcome to The best Sixty Seconds Pitch Access Website Online'
+    
     return render_template('index.html', title = title)

@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to The best Sixty Seconds Pitch Access Website Online </title>
+    {% endif %}
 </head>
 <body>
-    
+   <!-- Content block -->
+
+   {% block content %}
+
+   {% endblock %}
 </body>
 </html>
