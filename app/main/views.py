@@ -16,7 +16,6 @@ def index():
     title = 'Home - Welcome to The best Sixty Seconds Pitch Access Website Online'
     
     
-    # Getting reviews by category
     interview_piches = Pitch.get_pitches('interview')
     product_piches = Pitch.get_pitches('product')
     promotion_pitches = Pitch.get_pitches('promotion')
