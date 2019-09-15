@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Welcome to Sixty Seconds Pitch
+You have signed up for the application and you can now start sharing your pitches to everyone.
+All the best!
