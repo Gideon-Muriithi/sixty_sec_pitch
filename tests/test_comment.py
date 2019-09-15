@@ -1,6 +1,6 @@
+import unittest
 from app.models import Comment,User,Pitch
 from app import db
-import unittest
 
 class CommentModelTest(unittest.TestCase):
     def setUp(self):
@@ -14,5 +14,5 @@ class CommentModelTest(unittest.TestCase):
 
     def test_check_instance_variables(self):
         self.assertEquals(self.new_comment.comment,'Test comment')
-        self.assertEquals(self.new_comment.user,self.user_Gideon)
+        self.assertEquals(self.new_comment.user,self.user_)
         self.assertEquals(self.new_comment.pitch,self.new_pitch)
