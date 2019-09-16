@@ -5,12 +5,12 @@ from ..models import User
 from wtforms import ValidationError
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    username = StringField('Enter your username',validators = [Required()])
-    firstname = StringField('Enter your first name',validators = [Required()])
-    lastname = StringField('Enter your last name',validators = [Required()])
+    email = StringField('Email',validators=[Required(),Email()])
+    username = StringField('Username',validators = [Required()])
+    firstname = StringField('First Name',validators = [Required()])
+    lastname = StringField('Last Name',validators = [Required()])
     password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
-    password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
+    password_confirm = PasswordField('Confirm Password',validators = [Required()])
     submit = SubmitField('Sign Up')
 
     def validate_email(self,data_field):
@@ -19,10 +19,10 @@ class RegistrationForm(FlaskForm):
 
     def validate_username(self,data_field):
         if User.query.filter_by(username = data_field.data).first():
-            raise ValidationError('That username is taken')
+            raise ValidationError('The username is taken')
 
 class LoginForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
+    email = StringField('Email',validators=[Required(),Email()])
     password = PasswordField('Password',validators =[Required()])
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign In')

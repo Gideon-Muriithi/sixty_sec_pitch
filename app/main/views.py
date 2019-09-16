@@ -16,12 +16,12 @@ def index():
 
     title = 'Home - Welcome to Perfect Pitch'
 
-    interview_piches = Pitch.get_pitches('interview')
-    product_piches = Pitch.get_pitches('product')
+    interview_pitches = Pitch.get_pitches('interview')
+    product_pitches = Pitch.get_pitches('product')
     promotion_pitches = Pitch.get_pitches('promotion')
 
 
-    return render_template('index.html',title = title, interview = interview_piches, product = product_piches, promotion = promotion_pitches)
+    return render_template('index.html',title = title, interview = interview_pitches, product = product_pitches, promotion = promotion_pitches)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -131,9 +131,10 @@ def pitch(id):
         new_comment = Comment(comment = comment,user = current_user,pitch_id = pitch)
 
         new_comment.save_comment()
-        comments = Comment.get_comments(pitch)
 
-    return render_template("pitch.html", pitch = pitch, comment_form = comment_form, comments = comments, date = posted_date)
+    display_comments = Comment.get_comments(pitch)
+
+    return render_template("pitch.html", pitch = pitch, comment_form = comment_form, comments = display_comments, date = posted_date)
 
 @main.route('/user/<uname>/pitches')
 def user_pitches(uname):
