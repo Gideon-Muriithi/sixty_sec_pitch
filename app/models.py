@@ -91,3 +91,9 @@ class Comment(db.Model):
     def get_comments(cls,pitch):
         comments = Comment.query.filter_by(pitch_id=pitch).all()
         return comments
+        
+from . import login_manager
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))             

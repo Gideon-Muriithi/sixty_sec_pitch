@@ -1,11 +1,12 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from ..models import User,Pitch,Comment
-from .. import db, photos
+from .. import db,photos
 from .forms import UpdateProfile,PitchForm,CommentForm
 from flask_login import login_required,current_user
 import datetime
 
+# Views
 @main.route('/')
 def index():
 
@@ -13,9 +14,8 @@ def index():
     View root page function that returns the index page and its data
     '''
 
-    title = 'Home - Welcome to The best Sixty Seconds Pitch Access Website Online'
-    
-    
+    title = 'Home - Welcome to Perfect Pitch'
+
     interview_piches = Pitch.get_pitches('interview')
     product_piches = Pitch.get_pitches('product')
     promotion_pitches = Pitch.get_pitches('promotion')
@@ -28,7 +28,6 @@ def profile(uname):
     user = User.query.filter_by(username = uname).first()
     pitches_count = Pitch.count_pitches(uname)
     user_joined = user.date_joined.strftime('%b %d, %Y')
-
     if user is None:
         abort(404)
 
@@ -42,6 +41,7 @@ def update_profile(uname):
         abort(404)
 
     form = UpdateProfile()
+
     if form.validate_on_submit():
         user.bio = form.bio.data
 
@@ -75,7 +75,7 @@ def new_pitch():
         # Updated pitch instance
         new_pitch = Pitch(pitch_title=title,pitch_content=pitch,category=category,user=current_user,likes=0,dislikes=0)
 
-          # Save pitch method
+        # Save pitch method
         new_pitch.save_pitch()
         return redirect(url_for('.index'))
 
@@ -131,9 +131,7 @@ def pitch(id):
         new_comment = Comment(comment = comment,user = current_user,pitch_id = pitch)
 
         new_comment.save_comment()
-
-
-    comments = Comment.get_comments(pitch)
+        comments = Comment.get_comments(pitch)
 
     return render_template("pitch.html", pitch = pitch, comment_form = comment_form, comments = comments, date = posted_date)
 
@@ -143,4 +141,7 @@ def user_pitches(uname):
     pitches = Pitch.query.filter_by(user_id = user.id).all()
     pitches_count = Pitch.count_pitches(uname)
     user_joined = user.date_joined.strftime('%b %d, %Y')
+
     return render_template("profile/pitches.html", user=user,pitches=pitches,pitches_count=pitches_count,date = user_joined)
+
+

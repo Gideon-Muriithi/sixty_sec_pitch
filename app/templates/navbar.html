@@ -15,7 +15,7 @@
                 <li><a style="color: #cbd5db; font-weight: 500;" href="/">Home</a></li>
                 <li><a style="color: #cbd5db; font-weight: 500;" href="{{url_for('main.interview_pitches')}}">Interview</a></li>
                 <li><a style="color: #cbd5db; font-weight: 500;" href="{{url_for('main.product_pitches')}}">Product</a></li>
-                <li><a style="color: #cbd5db; font-weight: 500;" href="url_for('main.promotion_pitches')}}">Promotion</a></li>
+                <li><a style="color: #cbd5db; font-weight: 500;" href="{{url_for('main.promotion_pitches')}}">Promotion</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -29,7 +29,8 @@
                         </ul>
                     </li>
                     {% else %}
-                    <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                    <li><a href="{{url_for('auth.login')}}">Login</a></li>
+                    <li><a href="{{url_for('auth.register')}}" style="margin-right: 50px">Register</a></li>
                 </ul>
                 {%endif%}
             
