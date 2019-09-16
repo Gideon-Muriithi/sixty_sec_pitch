@@ -3,43 +3,48 @@
 
 <!-- Content block -->
 {% block content %}
-<div style="background-color: rgb(240, 240, 240)">
-<div class="well"
-    style="color: black; background-color: rgb(246, 188, 129); padding: 90px 25px; font-family: 'Times New Roman', Times; text-align: center">
-    <h1>Welcome to Sixty Seconds Pitch</h1>
-</div>
-<div class="container-fluid">
-<br>
-<div style="padding-bottom: 20px; float: right; ">
-    <a href="{{url_for('main.new_pitch')}}" class="btn btn-info">Create Pitch</a>
-</div>
+<div style="background-color: rgb(240, 240, 240);">
+    <div class="well"
+        style="color: black; background-color: rgb(246, 188, 129); padding: 90px 25px; font-family: 'Times New Roman', Times; text-align: center">
+        <h1>Welcome to Sixty Seconds Pitch</h1>
+        <p style="font-size: 21px; ">Register or login now if you already have an account to <br> share your pitch with
+            the world!</p>
+    </div>
+    <div class="container-fluid">
+        <br>
+        <div style="padding-bottom: 20px; float: right; ">
+            <a href="{{url_for('main.new_pitch')}}" class="btn btn-info">Create Pitch</a>
+        </div>
 
-<div style="font-family: 'Cormorant Upright', serif; margin-top: 50px">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="well well-lg text-muted" style="background-color: rgb(240, 240, 240);">
-                <h3>Interview Pitches</h3>
-                <p>Want to ace that interview and get the job? Why the wait! Let's begin.</p>
-                <a href="{{url_for('main.interview_pitches')}}" class="btn btn-info -center">View</a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div  class="well well-lg text-muted"  style="background-color: rgb(240, 240, 240);">
-                <h3>Product Pitches</h3>
-                <p>Want to sell out your product? You're in the right place. Let's go.</p>
-                <a href="{{url_for('main.product_pitches')}}" class="btn btn-info -center">View</a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="well well-lg text-muted" style="background-color: rgb(240, 240, 240);">
-                <h3>Promotion Pitches</h3>
-                <p>Do you have anything you wanna promote by your pitch? Let's do it in a split sec!</p>
-                <a href="{{url_for('main.promotion_pitches')}}" class="btn btn-info -center">View</a>
+        <div style="font-family: 'Cormorant Upright', serif; margin-top: 50px">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="well well-lg text-muted" style="background-color: rgb(240, 240, 240);">
+                        <h3>Interview Pitches</h3>
+                        <p>Want to ace that interview and get the job? Why the wait! Let's begin.</p>
+                        <a href="{{url_for('main.interview_pitches')}}" class="btn btn-info -center">View</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="well well-lg text-muted" style="background-color: rgb(240, 240, 240);">
+                        <h3>Product Pitches</h3>
+                        <p>Want to sell out your product? You're in the right place. Let's go.</p>
+                        <a href="{{url_for('main.product_pitches')}}" class="btn btn-info -center">View</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="well well-lg text-muted" style="background-color: rgb(240, 240, 240);">
+                        <h3>Promotion Pitches</h3>
+                        <p>Do you have anything you wanna promote by your pitch? Let's do it in a split sec!</p>
+                        <a href="{{url_for('main.promotion_pitches')}}" class="btn btn-info -center">View</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+    <hr>
+    <p style="text-align: center;" class="text-muted">Copyright &copy; 2019, Gideon Muriithi</p>
+    <br>
 </div>
 
 {% endblock %}
