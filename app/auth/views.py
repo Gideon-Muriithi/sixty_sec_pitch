@@ -24,11 +24,11 @@ def login():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username = form.username.data,firstname= form.firstname.data,lastname= form.lastname.data,password = form.password.data)
+        user = User(email = form.email.data,username = form.username.data,firstname= form.firstname.data,lastname= form.lastname.data,password = form.password.data)
         db.session.add(user)
         db.session.commit()
 
-        # email = form.email.data, mail_message("Welcome to Sixty Seconds Pitch","email/welcome_user",user.email,user=user)
+        # mail_message("Welcome to Sixty Seconds Pitch","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
         title = "New Account"
     return render_template('auth/register.html',registration_form = form)
